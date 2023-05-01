@@ -1,0 +1,16 @@
+{
+  "seed": 41,
+  "agentsCount": 10,
+  "opinionsRange": {
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "maxEpsilon": 0.0001,
+  "influencedConfrontation": {
+    "playersOpinions": [0, 100],
+    "noInfluenceProbability": 0.5
+  },
+  "formatting": {
+    "scale": 3
+  }
+}
