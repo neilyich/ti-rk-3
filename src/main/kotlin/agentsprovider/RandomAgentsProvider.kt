@@ -11,6 +11,7 @@ class RandomAgentsProvider(
         return List(count) { index ->
             Agent(
                 id = index + 1,
+                index = index,
                 opinion = RandomUtils.instance.nextInt(opinionsRange).toDouble()
             )
         }
