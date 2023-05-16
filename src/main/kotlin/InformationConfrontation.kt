@@ -12,7 +12,7 @@ class InformationConfrontation(
     private var currentTrustMatrix = trustMatrix
 
     fun perform(): SimpleMatrix {
-        while (!allHaveSameOpinion()) {
+        while (!nextIterationNeeded()) {
             iterate()
         }
         return currentTrustMatrix
@@ -23,13 +23,19 @@ class InformationConfrontation(
         val x1 = trustMatrix.mult(x0)
         agents.forEachIndexed { index, agent -> agent.opinion = x1[index, 0] }
         iterations++
-        currentTrustMatrix = trustMatrix.mult(trustMatrix)
+        currentTrustMatrix = currentTrustMatrix.mult(trustMatrix)
     }
 
-    private fun allHaveSameOpinion(): Boolean {
-        val maxOpinion = agents.maxOf { it.opinion }
-        val minOpinion = agents.minOf { it.opinion }
-        return (maxOpinion - minOpinion) < e
+    private fun nextIterationNeeded(): Boolean {
+        for (col in 0 until currentTrustMatrix.numCols) {
+            val column = currentTrustMatrix.getColumn(col)
+            val max = column.elementMax()
+            val min = column.elementMin()
+            if (max - min > e) {
+                return false
+            }
+        }
+        return true
     }
 
 }

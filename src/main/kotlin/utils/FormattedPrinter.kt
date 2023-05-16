@@ -27,6 +27,11 @@ object FormattedPrinter {
         }
     }
 
+    fun print(label: String?, n: Double) {
+        printLabel(label)
+        println(roundDouble(n))
+    }
+
     private fun maxNumWidth(trustMatrix: SimpleMatrix): Int {
         val maxNum = roundDouble(trustMatrix.elementMax())
         val minNum = roundDouble(trustMatrix.elementMin())

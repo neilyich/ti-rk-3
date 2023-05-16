@@ -1,15 +1,16 @@
 {
   "seed": 41,
   "agentsCount": 10,
-  "opinionsRange": {
-    "minValue": 0,
-    "maxValue": 100
+  "coefs": {
+    "a": 1.0,
+    "b": 2.0,
+    "c": 1.0,
+    "d": 1.0,
+    "gf": 1.0,
+    "gs": 1.0
   },
   "maxEpsilon": 0.0001,
-  "influencedConfrontation": {
-    "playersOpinions": [0, 100],
-    "noInfluenceProbability": 0.5
-  },
+  "noInfluenceProbability": 0.2,
   "formatting": {
     "scale": 3
   }

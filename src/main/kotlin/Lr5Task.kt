@@ -1,22 +1,21 @@
 data class Lr5Task(
     val seed: Int,
     val agentsCount: Int,
-    val opinionsRange: OpinionsRange,
+    val coefs: Coefs,
     val maxEpsilon: Double,
-    val influencedConfrontation: InfluencedConfrontation,
+    val noInfluenceProbability: Double,
     val formatting: Formatting,
 ) {
+    data class Coefs(
+        val a: Double,
+        val b: Double,
+        val c: Double,
+        val d: Double,
+        val gf: Double,
+        val gs: Double,
+    )
+
     data class Formatting(
         val scale: Int
-    )
-
-    data class InfluencedConfrontation(
-        val playersOpinions: List<Double>,
-        val noInfluenceProbability: Double,
-    )
-
-    data class OpinionsRange(
-        val minValue: Int,
-        val maxValue: Int,
     )
 }
